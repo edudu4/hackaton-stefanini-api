@@ -45,9 +45,9 @@ public class Endereco implements Serializable {
     @Column(name = "CO_SEQ_PESSOA")
     private Long idPessoa;
 
-//    @ManyToOne
-//    @JoinColumn(name = "co_seq_pessoa", referencedColumnName = "co_seq_pessoa", nullable = false)
-//    private Pessoa pessoa;
+    @ManyToOne
+    @JoinColumn(name = "co_seq_pessoa", referencedColumnName = "co_seq_pessoa", nullable = false)
+    private Pessoa pessoa;
 
 
     public Endereco() {
@@ -76,8 +76,16 @@ public class Endereco implements Serializable {
     public void setUf(String uf) {
         this.uf = uf;
     }
+    
+    public Pessoa getPessoa() {
+		return pessoa;
+	}
 
-    public String getLocalidade() {
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
+
+	public String getLocalidade() {
         return localidade;
     }
 

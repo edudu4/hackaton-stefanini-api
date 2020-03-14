@@ -1,9 +1,17 @@
 package com.stefanini.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "TB_PERFIL")
@@ -42,8 +50,8 @@ public class Perfil implements Serializable {
 //    /**
 //     * Mapeamento de Pessoa
 //     */
-//    @ManyToMany(mappedBy = "perfils")
-//    private Set<Pessoa> pessoas;
+    @ManyToMany(mappedBy = "perfils")
+    private Set<Pessoa> pessoas;
 
 
     public Perfil() {
@@ -58,16 +66,16 @@ public class Perfil implements Serializable {
         this.descricao = descricao;
         this.dataHoraInclusao = dataHoraInclusao;
         this.dataHoraAlteracao = dataHoraAlteracao;
-//        this.pessoas = pessoas;
+ //       this.pessoas = pessoas;
     }
 
-//    public Set<Pessoa> getPessoas() {
-//        return pessoas;
-//    }
-//
-//    public void setPessoas(Set<Pessoa> pessoas) {
-//        this.pessoas = pessoas;
-//    }
+    public Set<Pessoa> getPessoas() {
+        return pessoas;
+    }
+
+    public void setPessoas(Set<Pessoa> pessoas) {
+        this.pessoas = pessoas;
+    }
 
     public Long getId() {
         return id;
